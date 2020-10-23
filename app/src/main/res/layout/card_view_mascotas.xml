@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/cardview_default_radius"
+    android:elevation="@dimen/cardview_default_elevation"
+    android:layout_marginBottom="5dp"
+   android:layout_marginLeft="50dp"
+    android:layout_below="@+id/my_toolbar">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgbuttonhueso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icons8_hueso_del_perro_100"
+               android:layout_alignParentLeft="true"
+                />
+
+            <TextView
+                android:id="@+id/tvlikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/imgbuttonhuesodos"
+                />
+
+
+
+            <ImageButton
+                android:id="@+id/imgbuttonhuesodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icons8_hueso_del_perro_100" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imgFoto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:id="@+id/tvNombreDueño"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+               android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvedad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  />
+        <TextView
+            android:id="@+id/tvdescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"  />
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
