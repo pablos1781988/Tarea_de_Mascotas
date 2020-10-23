@@ -6,7 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".top5_mascotas"
     android:orientation="vertical">
+<include
+    android:id="@+id/my_toolbar1"
+    layout="@layout/action_bar">
 
+</include>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvmascotas1"

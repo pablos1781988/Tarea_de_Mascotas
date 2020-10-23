@@ -1,9 +1,11 @@
 package com.ps.petfollowing;
 
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,6 +22,12 @@ public class top5_mascotas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top5_mascotas);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar1);
+        setSupportActionBar(myToolbar);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
         rvmascotas=(RecyclerView) findViewById(R.id.rvmascotas1);
         LinearLayoutManager llm = new LinearLayoutManager(this );

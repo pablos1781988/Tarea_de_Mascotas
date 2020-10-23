@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+
 
         rvmascotas=(RecyclerView) findViewById(R.id.rvmascotas);
         LinearLayoutManager llm = new LinearLayoutManager(this );

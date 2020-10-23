@@ -1,6 +1,9 @@
 package com.ps.petfollowing;
 
 import android.app.Activity;
+import android.graphics.Color;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -39,6 +42,7 @@ public class mascotas_adapter extends RecyclerView.Adapter<mascotas_adapter.Masc
             public void onClick(View v) {
                 mascotas.setLikes(mascotas.getLikes()+1);
                 mascotas_view_holder.tvlikes.setText(Integer.toString(mascotas.getLikes()));
+                mascotas_view_holder.imghueso1.setBackgroundColor(Color.BLUE);
             }
         });
 
