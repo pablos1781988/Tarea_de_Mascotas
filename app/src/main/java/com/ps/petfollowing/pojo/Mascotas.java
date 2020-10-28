@@ -1,4 +1,4 @@
-package com.ps.petfollowing;
+package com.ps.petfollowing.pojo;
 
 public class Mascotas implements Comparable<Mascotas>{
 

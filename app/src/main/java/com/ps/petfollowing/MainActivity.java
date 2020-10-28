@@ -2,15 +2,24 @@ package com.ps.petfollowing;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.media.audiofx.AudioEffect;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+
+
+import com.ps.petfollowing.adapter.page_adapter;
+import com.ps.petfollowing.fragment.Main_Fragment;
+import com.ps.petfollowing.fragment.PerfilFragment;
+import com.ps.petfollowing.pojo.Mascotas;
 
 import java.util.ArrayList;
 
@@ -19,57 +28,70 @@ public class MainActivity extends AppCompatActivity {
     public static ArrayList<Mascotas> mascotas;
     private RecyclerView rvmascotas;
     Activity activity=this;
-
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
         ActionBar ab = getSupportActionBar();
+        tabLayout=(TabLayout) findViewById(R.id.tablayout);
+        viewPager=(ViewPager) findViewById(R.id.viewpager);
 
-
-        rvmascotas=(RecyclerView) findViewById(R.id.rvmascotas);
-        LinearLayoutManager llm = new LinearLayoutManager(this );
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        rvmascotas.setLayoutManager(llm);
-        inicializarListaMascotas();
-        inicializaradaptador();
-
-
-
-
-
+        setUpViewPAger();
 
 
     }
 
-
-    public void inicializaradaptador() {
-        mascotas_adapter adapter =new mascotas_adapter(mascotas, this);
-        rvmascotas.setAdapter(adapter);
-
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
     }
-    public void inicializarListaMascotas(){
-    mascotas=new ArrayList<Mascotas>();
 
-    mascotas.add(new Mascotas("Junior","Pablo","Perro Raza Callejero, muy astuto",7,R.drawable.perro));
-    mascotas.add(new Mascotas("Loretini","Lorena", "bastante rompepelotas",3,R.drawable.loro));
-    mascotas.add(new Mascotas("cuicui","Emilia","Caga por todos lados,muy oloroso",2,R.drawable.cui));
-    mascotas.add(new Mascotas("Gatuvin","Felipe","Muy independiente",8,R.drawable.gato));
-    mascotas.add(new Mascotas("Gatoman","Ana","inteligente de color indefinido",5,R.drawable.gatoextra_o));
-    mascotas.add(new Mascotas("Luisito","Emilia","Caga por todos lados,muy oloroso",2,R.drawable.conejo));
-    mascotas.add(new Mascotas("GaViula","Felipe","Muy independiente",8,R.drawable.ratonmamadera));
-    mascotas.add(new Mascotas("Gonada","Ana","inteligente de color indefinido",5,R.drawable.gatoperro));
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.mabout:
+                Intent intent=new Intent(this,  About.class);
+                this.startActivity(intent);
+                break;
+            case R.id.mcontacto:
+                Intent intent1=new Intent( this, Contacto.class);
+                this.startActivity(intent1);
+
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
+
+
 public void top5(View view){
 
         Intent intent=new Intent(this.activity,top5_mascotas.class);
         this.activity.startActivity(intent);
 }
+private ArrayList<Fragment> agregarfragment() {
+        ArrayList<Fragment> fragments=new ArrayList<>();
+
+        fragments.add(new PerfilFragment());
+        fragments.add(new Main_Fragment());
+        return fragments;
+    }
+    public void setUpViewPAger(){
+        viewPager.setAdapter(new page_adapter((getSupportFragmentManager()),agregarfragment()));
+        tabLayout.setupWithViewPager(viewPager);
+
+      // tabLayout.getTabAt(0).setIcon(R.drawable.ic_group);
+        //tabLayout.getTabAt(1).setIcon(R.drawable.ic_person_outline);
+
+    }
+
 
 }

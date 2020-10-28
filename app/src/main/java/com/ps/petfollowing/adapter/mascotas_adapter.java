@@ -1,9 +1,8 @@
-package com.ps.petfollowing;
+package com.ps.petfollowing.adapter;
 
 import android.app.Activity;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,7 +12,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ps.petfollowing.pojo.Mascotas;
+import com.ps.petfollowing.R;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class mascotas_adapter extends RecyclerView.Adapter<mascotas_adapter.Mascotas_view_holder>{
 
@@ -55,6 +58,12 @@ public class mascotas_adapter extends RecyclerView.Adapter<mascotas_adapter.Masc
         return ListaMascotas.size();
     }
 
+
+    @Override
+    public void onBindViewHolder(@NonNull Mascotas_view_holder holder, int position, @NonNull List<Object> payloads) {
+        super.onBindViewHolder(holder, position, payloads);
+    }
+
     public static class Mascotas_view_holder extends RecyclerView.ViewHolder{
     private ImageView   imgfoto;
     private ImageButton imghueso;
@@ -67,6 +76,7 @@ public class mascotas_adapter extends RecyclerView.Adapter<mascotas_adapter.Masc
 
     public Mascotas_view_holder(@NonNull View itemView) {
         super(itemView);
+
         imgfoto=(ImageView)itemView.findViewById(R.id.imgFoto);
         imghueso=(ImageButton) itemView.findViewById(R.id.imgbuttonhueso);
         imghueso1=(ImageButton) itemView.findViewById(R.id.imgbuttonhuesodos);
@@ -76,6 +86,7 @@ public class mascotas_adapter extends RecyclerView.Adapter<mascotas_adapter.Masc
         tvdescripcion=(TextView) itemView.findViewById(R.id.tvdescripcion);
         tvlikes=(TextView) itemView.findViewById(R.id.tvlikes);
     }
+
 }
 
 

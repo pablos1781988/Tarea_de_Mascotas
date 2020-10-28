@@ -7,12 +7,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.ps.petfollowing.adapter.mascotas_adapter;
+import com.ps.petfollowing.pojo.Mascotas;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
-import static com.ps.petfollowing.MainActivity.mascotas;
-
+//import static com.ps.petfollowing.MainActivity.mascotas;
+import static com.ps.petfollowing.fragment.PerfilFragment.mascotas;
 public class top5_mascotas extends AppCompatActivity {
 
     ArrayList<Mascotas> top5Mascotas;
@@ -46,7 +48,7 @@ public class top5_mascotas extends AppCompatActivity {
     }
     public void inicializarListaMascotas(){
 
-    top5Mascotas=new ArrayList<Mascotas>();
+    top5Mascotas= new ArrayList<>();
     Collections.sort(mascotas);
     for(int i=0;i<5;i++){
         top5Mascotas.add(mascotas.get(i));

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Contacto">
+    <include
+        android:id="@+id/my_toolbar"
+        layout="@layout/action_bar">
+
+    </include>
+    <TextView
+        android:id="@+id/contacto_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_toolbar"
+        android:textAlignment="center"
+        android:text="Ingrese Sus Datos"
+        android:layout_marginTop="25sp"
+        android:textSize="35sp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/contacto_titulo"
+        android:orientation="vertical">
+         <EditText
+             android:id="@+id/etnombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre"
+             android:layout_marginTop="25sp"
+        />
+        <EditText
+            android:id="@+id/etemail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:layout_marginTop="25sp"
+            />
+        <EditText
+            android:id="@+id/etmensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mensaje"
+            android:lines="5"
+            android:layout_marginTop="25sp"
+
+            />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/emailbutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="ENVIAR EMAIL"
+            android:layout_marginTop="50sp"/>
+
+        </LinearLayout>
+
+
+</RelativeLayout>
